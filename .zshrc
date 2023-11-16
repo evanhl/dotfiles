@@ -1,7 +1,7 @@
 ## Begin oh-my-zsh
 
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/evan/.oh-my-zsh"
@@ -121,3 +121,24 @@ fi
 setopt APPEND_HISTORY
 
 
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+# alias hp_production='HP_AWS_ACCESS_KEY_ID=`security find-generic-password -w -s hushpuppy_production_ro_api_key_id -a evan` HP_AWS_SECRET_ACCESS_KEY=`security find-generic-password -w -s hushpuppy_production_ro_api_key_secret -a evan` CONFIG_NAME=Production'
+# alias hp_staging='HP_AWS_ACCESS_KEY_ID=`security find-generic-password -w -s hushpuppy_staging_ro_api_key_id -a evan` HP_AWS_SECRET_ACCESS_KEY=`security find-generic-password -w -s hushpuppy_staging_ro_api_key_secret -a evan` CONFIG_NAME=Staging'
+# alias hp_sandbox='HP_AWS_ACCESS_KEY_ID=`security find-generic-password -w -s hushpuppy_sandbox_ro_api_key_id -a evan` HP_AWS_SECRET_ACCESS_KEY=`security find-generic-password -w -s hushpuppy_sandbox_ro_api_key_secret -a evan` CONFIG_NAME=Sandbox'
+# alias hp_development='HP_AWS_ACCESS_KEY_ID=`security find-generic-password -w -s hushpuppy_development_ro_api_key_id -a evan` HP_AWS_SECRET_ACCESS_KEY=`security find-generic-password -w -s hushpuppy_development_ro_api_key_secret -a evan` CONFIG_NAME=Development'
+# alias hp_cowboy='HP_AWS_ACCESS_KEY_ID=`security find-generic-password -w -s hushpuppy_cowboy_ro_api_key_id -a evan` HP_AWS_SECRET_ACCESS_KEY=`security find-generic-password -w -s hushpuppy_cowboy_ro_api_key_secret -a evan` CONFIG_NAME=Cowboy'
+# alias hp_test='HP_AWS_ACCESS_KEY_ID=`security find-generic-password -w -s hushpuppy_test_ro_api_key_id -a evan` HP_AWS_SECRET_ACCESS_KEY=`security find-generic-password -w -s hushpuppy_test_ro_api_key_secret -a evan` CONFIG_NAME=Test'
+
+if [ -f /Users/evan/Documents/dev-git/helioscope/build-support/hushpuppy/add_hushpuppy_aliases.sh ]
+then
+  source /Users/evan/Documents/dev-git/helioscope/build-support/hushpuppy/add_hushpuppy_aliases.sh
+fi
+
+export LDFLAGS="-L/usr/local/Cellar/openssl@1.1/1.1.1t/lib"
+export CPPFLAGS="-I/usr/local/Cellar/openssl@1.1/1.1.1t/lib/include"
